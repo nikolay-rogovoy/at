@@ -1,0 +1,12 @@
+<p>form component</p>
+<form name="from-component" id="from-component" [formGroup]="formGroup" #form="ngForm">
+    <!-- <input type="text" name="name" id="input_name" [(ngModel)]="entity.name"> -->
+    <app-input-component [entity]="entity" [property]="'name'" [formGroup]="formGroup"></app-input-component>
+</form>
+
+<p>
+    {{form.dirty}}
+</p>
+<p>
+    {{entity.name}}
+</p>
