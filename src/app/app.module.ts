@@ -6,13 +6,17 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppFormsModule } from './forms/app-forms/app-forms-module';
 import { ReduxModule } from './redux/redux.module';
+import { AppRoutingModule } from './routing/app-routing-module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
+        CommonModule,
         BrowserModule,
+        AppRoutingModule,
         FactoryModule,
         ReduxModule,
         FormsModule,
