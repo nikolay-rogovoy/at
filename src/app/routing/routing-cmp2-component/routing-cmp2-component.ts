@@ -20,6 +20,7 @@ export class RoutingCmp2Component implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(
             (params) => {
+                this.matrixParams = [];
                 Object.keys(params).forEach((key) => {
                     this.matrixParams.push({ name: key, value: params[key] });
                 });
@@ -27,6 +28,7 @@ export class RoutingCmp2Component implements OnInit {
         );
         this.route.queryParams.subscribe(
             (params) => {
+                this.queryParams = [];
                 Object.keys(params).forEach((key) => {
                     this.queryParams.push({ name: key, value: params[key] });
                 });

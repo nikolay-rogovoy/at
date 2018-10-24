@@ -15,7 +15,11 @@ import { RoutingCmp2Component } from './routing-cmp2-component/routing-cmp2-comp
             {
                 path: 'routing-cmp1-component', component: RoutingCmp1Component,
                 children: [
-                    { path: 'routing-cmp2-component', component: RoutingCmp2Component }
+                    { path: 'routing-cmp2-component', component: RoutingCmp2Component },
+                    {
+                        path: 'path_to_component', component: RoutingCmp2Component,
+                        outlet: 'outlet1'
+                    },
                 ]
             }
         ]),
