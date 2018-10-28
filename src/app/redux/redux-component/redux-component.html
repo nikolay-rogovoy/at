@@ -1,5 +1,11 @@
 <p>redux-component</p>
-<button type="button" b1()>b1</button>
+<button type="button" (click)="b1()">b1</button>
 <div>
 {{value}}
+</div>
+
+<button type="button" (click)="b2()">Добавить элемент</button>
+
+<div *ngIf="testListState$ | async as testListState">
+    <p *ngFor="let testState of testListState.testStates">{{testState.name}}</p>
 </div>

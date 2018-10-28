@@ -8,6 +8,7 @@ import { AppFormsModule } from './forms/app-forms/app-forms-module';
 import { ReduxModule } from './redux/redux.module';
 import { AppRoutingModule } from './routing/app-routing-module';
 import { CommonModule } from '@angular/common';
+import { AppChangeDetectionModule } from './change-detection/change-detection-module';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
         CommonModule,
         BrowserModule,
         AppRoutingModule,
+        AppChangeDetectionModule,
         FactoryModule,
         ReduxModule,
         FormsModule,

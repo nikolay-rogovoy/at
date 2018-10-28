@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AddAction } from '../actions';
-import { Storage } from '../storage';
+import { SimpleStorage } from '../simple-storage';
+import { Store } from '@ngrx/store';
+import TestListState from '../store/test/test-list-state';
+import { Observable } from 'rxjs';
+import { AddTest } from '../store/test/test-action';
+import TestState from '../store/test/test-state';
 
 /***/
 @Component({
@@ -10,19 +15,38 @@ import { Storage } from '../storage';
 export class ReduxComponent implements OnInit {
 
     /***/
+    testListState$: Observable<TestListState>;
+
+    /***/
     value: number;
 
     /***/
-    constructor(public storage: Storage<number>) {
-        this.value = storage.getState();
+    constructor(public simpleStorage: SimpleStorage<number>,
+        public store: Store<AppState>) {
+        this.value = simpleStorage.getState();
+        simpleStorage.changed.subscribe(() => {
+            this.value = simpleStorage.getState();
+        });
     }
 
     /***/
     ngOnInit() {
+        this.testListState$ = this.store.select(testListState => testListState.tests);
+        this.testListState$.subscribe(x => console.log(x.testStates));
     }
 
     /***/
     b1() {
-        this.storage.dispatch(new AddAction(3));
+        this.simpleStorage.dispatch(new AddAction(3));
     }
+    /***/
+    b2() {
+        this.store.dispatch(new AddTest(<TestState>{ id: 1, name: 'asdasd', selected: false }));
+    }
+}
+
+/***/
+export interface AppState {
+    /***/
+    tests: TestListState;
 }

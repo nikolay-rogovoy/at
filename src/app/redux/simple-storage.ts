@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 
 /***/
 @Injectable()
-export class Storage<T> {
+export class SimpleStorage<T> {
     /***/
     get changed(): Observable<void> {
         return this._changed;
