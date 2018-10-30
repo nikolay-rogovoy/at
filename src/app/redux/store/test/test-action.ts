@@ -9,6 +9,8 @@ export const GET_TESTS = '[Test] GET_TESTS';
 export const GET_TESTS_ERROR = '[Test] GET_TESTS_ERROR';
 /***/
 export const ADD_TEST = '[Test] ADD_TEST';
+/***/
+export const ADD_TEST_SYNC = '[Test] ADD_TEST_SYNC';
 
 /***/
 export class GetTests implements Action {
@@ -37,4 +39,12 @@ export class AddTest implements Action {
 }
 
 /***/
-export type All = GetTest | GetTests | GetTestsError | AddTest;
+export class AddTestSync implements Action {
+    /***/
+    readonly type = ADD_TEST_SYNC;
+    /***/
+    constructor(public payload: TestState) { }
+}
+
+/***/
+export type All = GetTest | GetTests | GetTestsError | AddTest | AddTestSync;

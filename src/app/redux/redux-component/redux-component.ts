@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { AddAction } from '../actions';
 import { SimpleStorage } from '../simple-storage';
-import { Store } from '@ngrx/store';
-import TestListState from '../store/test/test-list-state';
-import { Observable } from 'rxjs';
 import { AddTest } from '../store/test/test-action';
+import TestListState from '../store/test/test-list-state';
 import TestState from '../store/test/test-state';
 
 /***/

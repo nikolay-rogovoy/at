@@ -22,9 +22,8 @@ export function TestReducer(state: TestListState = defaultState, action: Action)
             return state;
         case TestActions.GET_TESTS_ERROR:
             return state;
-        // case TestActions.ADD_TEST:
-        //     console.log(TestActions.ADD_TEST);
-        //     return { ...state, testStates: [...state.testStates, action.payload] };
+        case TestActions.ADD_TEST_SYNC:
+            return { ...state, testStates: [...state.testStates, action.payload] };
         default:
             return state;
     }

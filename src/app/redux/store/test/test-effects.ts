@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { switchMap, map, withLatestFrom } from 'rxjs/operators';
-import { Effect, Actions } from '@ngrx/effects';
-import { ADD_TEST } from './test-action';
-import { of } from 'rxjs';
-import * as TestActions from './test-action';
+import { Actions, Effect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import { switchMap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from '../../redux-component/redux-component';
+import * as TestActions from './test-action';
+import TestListState from './test-list-state';
 
 @Injectable()
 export class TestEffects {
@@ -15,15 +15,11 @@ export class TestEffects {
     ) { }
 
     @Effect()
-    getTest$ = this.actions.ofType(ADD_TEST).pipe(
-        switchMap((action: TestActions.AddTest) => {
-            return withLatestFrom(this.store)
-            .pipe();
-            return of(action.payload);
-        }),
-        map((ss) => {
-            return TestActions
+    addTest$ = this.actions.ofType(TestActions.ADD_TEST).pipe(
+        withLatestFrom<TestActions.AddTest, TestListState>(this.store.select(appState => appState.tests)),
+        switchMap(([action, testListState]) => {
+            console.log('ADD_TEST effect');
+            return of(new TestActions.AddTestSync(action.payload));
         })
     );
-
 }
