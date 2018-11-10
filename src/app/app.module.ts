@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppFormsModule } from './forms/app-forms/app-forms-module';
 import { ReduxModule } from './redux/redux.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { ReduxModule } from './redux/redux.module';
         ReduxModule,
         FormsModule,
         AppFormsModule,
+        CommonModule,
         RouterModule.forRoot([], { enableTracing: false })
     ],
     providers: [],

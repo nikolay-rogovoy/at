@@ -5,15 +5,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputComponent } from './input-component/input-component';
 import { FromTComponent } from './from-t-component/from-t-component';
 import { InputTComponent } from './input-t-component/input-t-component';
+import { CommonModule } from '@angular/common';
+import { DatetimeInputComponent } from './datetime-input-component/datetime-input-component';
 
 @NgModule({
     declarations: [
         InputComponent,
+        DatetimeInputComponent,
         InputTComponent,
         FromComponent,
         FromTComponent
     ],
     imports: [
+        CommonModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forChild([

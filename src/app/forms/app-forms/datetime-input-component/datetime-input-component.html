@@ -1,0 +1,8 @@
+<div [formGroup]="formGroup">
+    <input 
+    type="datetime-local"
+    [formControlName]="property"
+    [value]="formGroup.get(property).value | date:'yyyy-MM-ddTHH:mm'"
+    >
+    <small *ngIf="isRequiredError && isTouched">Необходимо заполнить!</small>
+</div>

@@ -1,12 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AppControlComponent } from '../app-control-component';
 
 /***/
 @Component({
     selector: 'app-input-component',
     templateUrl: './input-component.html'
 })
-export class InputComponent implements OnInit {
+export class InputComponent extends AppControlComponent implements OnInit {
 
     /***/
     @Input()
@@ -14,14 +15,11 @@ export class InputComponent implements OnInit {
 
     /***/
     @Input()
-    entity = {};
-
-    /***/
-    @Input()
     property = '';
 
     /***/
     constructor() {
+        super();
     }
 
     /***/

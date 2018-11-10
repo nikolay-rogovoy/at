@@ -1,11 +1,13 @@
 <p>form component</p>
-<form name="from-component" id="from-component" [formGroup]="formGroup" #form="ngForm">
+<form [formGroup]="formGroup" (ngSubmit)="submitForm()">
     <!-- <input type="text" name="name" id="input_name" [(ngModel)]="entity.name"> -->
-    <app-input-component [entity]="entity" [property]="'name'" [formGroup]="formGroup"></app-input-component>
+    <app-input-component [property]="'name'" [formGroup]="formGroup"></app-input-component>
+    <app-datetime-input-component [property]="'dt'" [formGroup]="formGroup"></app-datetime-input-component>
+    <button type="submit">submit</button>
 </form>
 
 <p>
-    {{form.dirty}}
+    {{formGroup.dirty}}
 </p>
 <p>
     {{entity.name}}

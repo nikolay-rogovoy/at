@@ -1,4 +1,6 @@
 <div [formGroup]="formGroup">
     <input [formControlName]="property">
-    <!-- [(ngModel)]="entity[property]" -->
+    <small *ngIf="isRequiredError && isTouched">Необходимо заполнить!</small>
+    <small *ngIf="isMinlengthError && isTouched">Минимальный размер поля {{minlengthSize}} символов!</small>
+    <small *ngIf="isMaxlengthError && isTouched">Максимальный размер поля {{maxlengthSize}} символов!</small>
 </div>

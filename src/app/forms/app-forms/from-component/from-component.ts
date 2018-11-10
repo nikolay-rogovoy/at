@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IFromEntity } from '../entitys/i-from-entity';
-import { NgForm, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { AppFormControl } from '../app-form-control';
 
 /***/
 @Component({
@@ -10,15 +11,12 @@ import { NgForm, FormGroup, FormControl } from '@angular/forms';
 export class FromComponent implements OnInit {
 
     /***/
-    @ViewChild('form')
-    form: NgForm;
-
-    /***/
     entity: IFromEntity = <IFromEntity>{};
 
     /***/
     formGroup = new FormGroup({
-        name: new FormControl()
+        name: new AppFormControl('def_value', true, 5, 10),
+        dt: new AppFormControl(new Date(), true, 5, 10)
     });
 
     /***/
@@ -27,6 +25,11 @@ export class FromComponent implements OnInit {
 
     /***/
     ngOnInit() {
-        this.formGroup.setValue({name: 'asdasd'});
+        this.formGroup.setValue({ name: 'asdasd', dt: new Date() });
+    }
+
+    /***/
+    submitForm() {
+        console.log(this.formGroup.value);
     }
 }
