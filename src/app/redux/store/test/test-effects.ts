@@ -6,6 +6,7 @@ import { switchMap, withLatestFrom } from 'rxjs/operators';
 import { AppState } from '../../redux-component/redux-component';
 import * as TestActions from './test-action';
 import TestListState from './test-list-state';
+import { testSelector } from './selectors';
 
 @Injectable()
 export class TestEffects {
@@ -16,7 +17,7 @@ export class TestEffects {
 
     @Effect()
     addTest$ = this.actions.ofType(TestActions.ADD_TEST).pipe(
-        withLatestFrom<TestActions.AddTest, TestListState>(this.store.select(appState => appState.tests)),
+        withLatestFrom<TestActions.AddTest, TestListState>(this.store.select(testSelector)),
         switchMap(([action, testListState]) => {
             console.log('ADD_TEST effect');
             return of(new TestActions.AddTestSync(action.payload));

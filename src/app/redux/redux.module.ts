@@ -18,8 +18,8 @@ import { TestEffects } from './store/test/test-effects';
         RouterModule.forChild([
             { path: 'redux-component', component: ReduxComponent }
         ]),
-        StoreModule.forRoot({ tests: TestReducer }),
-        EffectsModule.forRoot([TestEffects])
+        StoreModule.forFeature('test', { tests: TestReducer }),
+        EffectsModule.forFeature([TestEffects])
     ],
     providers: [
         TestEffects,
