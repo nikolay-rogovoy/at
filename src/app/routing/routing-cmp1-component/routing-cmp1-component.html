@@ -1,0 +1,10 @@
+<p>routing-cmp1-component</p>
+<p>matrix params</p>
+<p *ngFor="let param of matrixParams">{{param.name}} = {{param.value}}</p>
+<p>query params</p>
+<p *ngFor="let param of queryParams">{{param.name}} = {{param.value}}</p>
+
+<router-outlet></router-outlet>
+<button type="button" (click)="showOutlet()">show outlet1</button>
+<button type="button" (click)="disableOutlet()">hide outlet1</button>
+<router-outlet name="outlet1"></router-outlet>

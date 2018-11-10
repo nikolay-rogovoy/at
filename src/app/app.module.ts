@@ -7,13 +7,18 @@ import { FormsModule } from '@angular/forms';
 import { AppFormsModule } from './forms/app-forms/app-forms-module';
 import { ReduxModule } from './redux/redux.module';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from './routing/app-routing-module';
+import { AppChangeDetectionModule } from './change-detection/change-detection-module';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
     imports: [
+        CommonModule,
         BrowserModule,
+        AppRoutingModule,
+        AppChangeDetectionModule,
         FactoryModule,
         ReduxModule,
         FormsModule,
